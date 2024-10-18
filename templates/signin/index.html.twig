@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" id="theme" class="light">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="shortcut icon" href="assets/images/auction-fevicon.png" />
+    <title>S’enregistrer</title>
+    <!-- Bootstrap CSS v5.2.1 -->
+    {% block stylesheets %}
+    <link
+      rel="stylesheet"
+      href="{{ asset('assets/styles/all.min.css') }}"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ asset('assets/styles/swiper.min.css') }}"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ asset('assets/styles/bootstrap.min.css') }}"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ asset('assets/styles/style.css') }}"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ asset('assets/styles/responsive.css') }}"
+      type="text/css"
+    />
+    {% endblock %}
+  </head>
+
+  <body>
+    <!-- Preloader Start -->
+    <div class="preloader bg-light" id="preloader">
+      <span class="preloader-inner"></span>
+    </div>
+    <!-- Preloader End -->
+    <div class="toggle-theme d-none">
+      <input type="checkbox" class="changeTheme" id="changeTheme" />
+      <label for="changeTheme" class="m-auto"></label>
+    </div>
+    <div
+      class="login-wrapper"
+      id="login-wrapper"
+      style="background-image: url('assets/images/login-bg.svg')"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-lg-6 col-xl-5">
+            <div class="form-wrapper text-center">
+              <a class="d-inline-block mb-2" href="index.html">
+                <img
+                  src="assets/images/auction-fevicon.png"
+                  class="themeLogo img-fluid"
+                  alt="logo"
+                />
+              </a>
+              <h2 class="display-6 fw-bold mb-3">S’enregistrer</h2>
+              <p class="mb-4">
+                Remplissez les détails requis pour créer un compte BidZone
+              </p>
+              <form action="#">
+                <div class="row">
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label>Email*</label>
+                      <input
+                        type="email"
+                        class="form-control"
+                        placeholder="name@mail.com"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group formPassword">
+                      <label>Mot de passe*</label>
+                      <input
+                        type="password"
+                        class="form-control"
+                        placeholder="****"
+                        required
+                      />
+                      <span class="input-checker password-show-hide"
+                        ><i class="fa-regular fa-eye-slash"></i
+                      ></span>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group formPassword">
+                      <label>Confirmer le mot de passe*</label>
+                      <input
+                        type="password"
+                        class="form-control"
+                        placeholder="****"
+                        required
+                      />
+                      <span class="input-checker"
+                        ><i class="fa-regular fa-eye-slash"></i
+                      ></span>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-check text-start">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="flexCheckDefault"
+                        required
+                      />
+                      <label class="form-check-label" for="flexCheckDefault">
+                        J’accepte les conditions et la politique de
+                        confidentialité
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-12 mb-4">
+                    <button class="primary-btn w-100" type="submit">
+                      Envoyer
+                    </button>
+                  </div>
+                  <div class="col-12">
+                    <p
+                      class="border-bottom border-dark mb-4"
+                      style="height: 1px"
+                    >
+                      <span
+                        class="position-relative px-2 text-dark"
+                        style="top: -13px; background: var(--bg-wrapper)"
+                        >OU</span
+                      >
+                    </p>
+                  </div>
+                  <div class="col-12 mb-3">
+                    <button
+                      class="primary-btn bg-light text-black border-dark w-100 text-capitalize"
+                    >
+                      <i class="fa-brands fa-google"></i
+                      ><span class="ms-2">Continuer avec google</span>
+                    </button>
+                  </div>
+                  <p>
+                    Vous avez déjà un compte?
+                    <a href="login.html">S'identifier</a>
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- JavaScript Libraries -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(document).ready(function () {
+          if (localStorage.storedValue == "dark") {
+            $("#changeTheme").prop("checked", true);
+            $("#changeTheme1").prop("checked", true);
+            document.getElementById("theme").className = "dark";
+            document.getElementById("login-wrapper").style.backgroundImage =
+              "url('assets/images/login-bg-dark.svg')";
+          } else {
+            $("#changeTheme").prop("checked", false);
+            $("#changeTheme1").prop("checked", false);
+            document.getElementById("theme").className = "light";
+            document.getElementsByClassName(
+              "login-wrapper"
+            ).style.backgroundImage = "url('assets/images/login-bg.svg')";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
