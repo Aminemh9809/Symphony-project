@@ -8,11 +8,13 @@
     <link rel="shortcut icon" href="assets/images/auction-fevicon.png">
     <title>Payment</title>
     <!-- Bootstrap CSS v5.2.1 -->
-    <link rel="stylesheet" href="assets/css/all.min.css" type="text/css">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
-    <link rel="stylesheet" href="assets/css/responsive.css" type="text/css">
-
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('assets/styles/all.min.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('assets/styles/swiper.min.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('assets/styles/bootstrap.min.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('assets/styles/style.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('assets/styles/responsive.css') }}" type="text/css">
+    {% endblock %}
 </head>
 
 <body>

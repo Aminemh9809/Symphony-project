@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class TermConditionController extends AbstractController
 {
-    #[Route('/term/condition', name: 'app_term_condition')]
+    #[Route('/termCondition', name: 'app_term_condition')]
     public function index(): Response
     {
         return $this->render('term_condition/index.html.twig', [
