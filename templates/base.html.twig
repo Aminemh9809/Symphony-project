@@ -1,10 +1,10 @@
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        
         {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('assets/styles/all.min.css') }}" type="text/css">
         <link rel="stylesheet" href="{{ asset('assets/styles/swiper.min.css') }}" type="text/css">
@@ -74,7 +74,9 @@
     <nav class="navbar navbar-expand-lg py-3">
         <div class="container">
             <a class="navbar-brand p-0" href="/">
-                <img src="assets/images/logo.svg" id="headerLogo" class="themeLogo img-fluid w-100" alt="logo">
+                <img src="{{ asset('assets/images/logo.svg') }}" id="headerLogo" class="themeLogo img-fluid w-100" alt="logo">
+
+
             </a>
             <div class="nav-right justify-content-center" id="navbar">
                 <ul class="navbar-nav position-relative d-none d-lg-flex">
@@ -225,7 +227,7 @@
                 <div class="col-md-12 col-lg-4">
                     <div class="footer-disc">
                         <a href="/" class="footer-logo">
-                            <img src="assets/images/logo-white.svg" id="footerLogo" class="fThemeLogo img-fluid"
+                            <img src="{{ asset('assets/images/logo-white.svg') }}" id="footerLogo" class="fThemeLogo img-fluid"
                                 alt="logo">
                         </a>
                         <p>Unlock treasures through exhilarating auctions. Your gateway to rare finds and
