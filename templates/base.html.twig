@@ -1,24 +1,135 @@
-
 <!DOCTYPE html>
+<html lang="en" id="theme" class="light">
+
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        <link rel="stylesheet" href="{{ asset('assets/styles/all.min.css') }}" type="text/css">
-        <link rel="stylesheet" href="{{ asset('assets/styles/swiper.min.css') }}" type="text/css">
-        <link rel="stylesheet" href="{{ asset('assets/styles/bootstrap.min.css') }}" type="text/css">
-        <link rel="stylesheet" href="{{ asset('assets/styles/style.css') }}" type="text/css">
-        <link rel="stylesheet" href="{{ asset('assets/styles/responsive.css') }}" type="text/css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="../../assets/images/auction-fevicon.png">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>"
+    />
+    {% block stylesheets %}
+    <link
+      rel="stylesheet"
+      href="{{ asset('assets/styles/all.min.css') }}"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ asset('assets/styles/swiper.min.css') }}"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ asset('assets/styles/bootstrap.min.css') }}"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ asset('assets/styles/style.css') }}"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ asset('assets/styles/responsive.css') }}"
+      type="text/css"
+    />
     {% endblock %}
+    
+  </head>
+  <body>
+    <!-- Include Header -->
+    {% include 'partials/header.html.twig' %}
 
 
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+     {% block body %}
+         <!-- Preloader Start -->
+    <div class="preloader bg-light" id="preloader">
+      <span class="preloader-inner"></span>
+    </div>
+    <!-- Preloader End -->
+    <!-- Back-to-top Start -->
+    <a href="javascript:void(0)" class="back-to-top"
+      ><i class="fa-solid fa-up-long"></i
+    ></a>
+    <!-- Back-to-top End -->
+     {% endblock %}
+
+    <!-- Include Footer -->
+    {% include 'partials/footer.html.twig' %}
+    {% block javascript %}
+      <!-- JavaScript Libraries -->
+      <script src="../../assets/js/jquery.min.js"></script>
+      <script src="../../assets/js/bootstrap.bundle.min.js"></script>
+      <script src="../../assets/js/swiper.min.js"></script>
+      <script src="../../assets/js/custom.js"></script>
+      <script>
+        var swiper = new Swiper(".categorySwiper", {
+          spaceBetween: 32,
+          autoplay: {
+            delay: 1000,
+          },
+          breakpoints: {
+            450: {
+              slidesPerView: 2,
+            },
+            768: {
+              slidesPerView: 3,
+            },
+            992: {
+              slidesPerView: 4,
+            },
+            1400: {
+              slidesPerView: 6,
+            },
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+        });
+  
+        const mySwiper = new Swiper(".banner-slider", {
+          effect: "cards",
+          grabCursor: true,
+          slidesPerView: 1,
+          autoplay: {
+            delay: 2000,
+          },
+        });
+  
+        var x = 0;
+        var y = 1;
+        var currentActiveSlide = $(".swiper-slide-active .banner-card img").attr(
+          "src"
+        );
+        $("#current-image").css("background-image", `url(${currentActiveSlide})`);
+  
+        mySwiper.on("slideChange", function (e) {
+          x = e.activeIndex;
+          if (y <= x) {
+            var currentActiveSlide = $(
+              ".swiper-slide-next .banner-card img"
+            ).attr("src");
+            $("#current-image").css(
+              "background-image",
+              `url(${currentActiveSlide})`
+            );
+          } else {
+            var currentActiveSlide = $(
+              ".swiper-slide-prev .banner-card img"
+            ).attr("src");
+            $("#current-image").css(
+              "background-image",
+              `url(${currentActiveSlide})`
+            );
+          }
+          y = x;
+        });
+      </script>
+      {% endblock %}
+  </body>
 </html>
