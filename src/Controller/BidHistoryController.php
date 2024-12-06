@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class BidHistoryController extends AbstractController
 {
+
     #[Route('/bidHistory', name: 'app_bid_history')]
     public function index(): Response
     {
